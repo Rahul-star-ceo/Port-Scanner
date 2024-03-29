@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'socket.css' %}">
+    <title>IP Address and Port</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1 style="text-align: center;color: red;">Welcome to the port scanner </h1>
+        <h2>Enter IP Address and Port</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <label for="ipAddress">IP Address:</label>
+            <input type="text" id="ipAddress" name="ipAddress" placeholder="Enter IP address" required>
+            
+            <label for="portNumber">Port Number:</label>
+            <input type="text" id="portNumber" name="portNumber" placeholder="Enter port-range" required>
+            
+            <button type="submit">Submit</button>
+             </form>
+             
+             
+             <div style="background-color: aliceblue;color: black;display:inline-block;">
+                <ul>
+                    {% for scan in Scanning%}
+                <li>{{scan}}</li>
+                {% endfor %}
+                </ul>
+    
+                </div>
+                <h1>  opens ports are {{form}}   </h1>
+
+            </div>
+
+           
+
+
+          
+        
+    
+</body>
+</html>
